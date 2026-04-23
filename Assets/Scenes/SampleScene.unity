@@ -128,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19452819}
-  - component: {fileID: 19452818}
   m_Layer: 0
   m_Name: VisualManager
   m_TagString: Untagged
@@ -136,20 +135,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &19452818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19452817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf56e94d4be924204a7a9ed1e8d428b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IntoxicationVisualController
-  intoxicationManager: {fileID: 2070967836}
-  tunnelingVignette: {fileID: 0}
 --- !u!4 &19452819
 Transform:
   m_ObjectHideFlags: 0
@@ -292,6 +277,18 @@ PrefabInstance:
       value: TunnelingVignette
       objectReference: {fileID: 0}
     - target: {fileID: 8429981633443581382, guid: 6c8af5c8012f01440af6cb2bc3eb987c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 6c8af5c8012f01440af6cb2bc3eb987c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 6c8af5c8012f01440af6cb2bc3eb987c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 6c8af5c8012f01440af6cb2bc3eb987c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -333,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8429981633443581383, guid: 6c8af5c8012f01440af6cb2bc3eb987c, type: 3}
       propertyPath: m_DefaultParameters.m_ApertureSize
-      value: 0.8
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8429981633443581383, guid: 6c8af5c8012f01440af6cb2bc3eb987c, type: 3}
       propertyPath: m_LocomotionVignetteProviders.Array.size
@@ -545,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2d44018f5084697950a4164af9d94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntoxicationUI
-  intoxicationManager: {fileID: 2070967836}
+  motionInertia: {fileID: 935796772}
   intoxicationText: {fileID: 1840399474}
 --- !u!4 &467680374
 Transform:
@@ -645,6 +642,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (6)
@@ -702,6 +703,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (8)
@@ -921,6 +926,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 935796770}
+    - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 935796772}
+    - targetCorrespondingSourceObject: {fileID: 1680501586, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1288199190}
     - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1126151040}
@@ -1052,6 +1063,20 @@ MonoBehaviour:
   rayLength: 3
   snapSpeed: 10
   maxSnapDistance: 0.5
+--- !u!114 &935796772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935796744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115f790efd88c4a848cd7c8f14e11c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MotionInertia
+  beersDrunk: 0
+  maxBeers: 10
 --- !u!1 &1126151036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -1159,6 +1184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (3)
@@ -1208,6 +1237,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+--- !u!1 &1288199189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1680501586, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 935796743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1288199190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288199189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e099f8d3bbf346fe8674d60ff743aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrunkHeadWobble
+  motionInertia: {fileID: 935796772}
+  firstBeerPositionX: 0.005
+  maxPositionX: 0.02
+  firstBeerRotationZ: 1
+  maxRotationZ: 3
+  wobbleSpeed: 1.5
 --- !u!1001 &1448066620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1219,7 +1271,7 @@ PrefabInstance:
     - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 935796763}
+      objectReference: {fileID: 935796748}
     - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: pickupDistance
       value: 2
@@ -1327,8 +1379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MotionInertia
   beersDrunk: 0
-  maxSwayAmount: 3
-  maxSwaySpeed: 2
+  maxBeers: 10
 --- !u!1001 &1563700616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1337,6 +1388,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (9)
@@ -1394,6 +1449,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (4)
@@ -1821,7 +1880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2d44018f5084697950a4164af9d94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntoxicationUI
-  intoxicationManager: {fileID: 1264668988}
+  motionInertia: {fileID: 0}
   intoxicationText: {fileID: 1840399474}
 --- !u!1001 &2001028169
 PrefabInstance:
@@ -1831,6 +1890,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (1)
@@ -1888,6 +1951,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (2)
@@ -2038,6 +2105,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle (7)
@@ -2689,6 +2760,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3983255870333698317, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 935796748}
     - target: {fileID: 7881986884384107927, guid: 726036fbafda34a94a82306fc91866e4, type: 3}
       propertyPath: m_Name
       value: BeerBottle

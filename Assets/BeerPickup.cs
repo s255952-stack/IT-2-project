@@ -20,8 +20,8 @@ public class BeerPickup : MonoBehaviour
                 drunk.DrinkBeer();
             }
 
+            Debug.Log("Beer picked up!");
             Destroy(gameObject);
         }
     }
 }
-

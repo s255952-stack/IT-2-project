@@ -3,16 +3,17 @@ using TMPro;
 
 public class IntoxicationUI : MonoBehaviour
 {
-    public IntoxicationManager intoxicationManager;
+    public MotionInertia motionInertia;
     public TextMeshProUGUI intoxicationText;
 
     void Update()
     {
-        int level = intoxicationManager.intoxicationLevel;
+        if (motionInertia == null || intoxicationText == null) return;
+
+        int level = motionInertia.beersDrunk;
 
         intoxicationText.text = "Intoxication: " + level;
 
-        // ændrer farve
         if (level < 3)
             intoxicationText.color = Color.green;
         else if (level < 6)
@@ -21,5 +22,4 @@ public class IntoxicationUI : MonoBehaviour
             intoxicationText.color = Color.red;
     }
 }
-
 
