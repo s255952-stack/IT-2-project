@@ -29,10 +29,10 @@ public class DrunkOverlayEffect : MonoBehaviour
 
         Color color = overlayImage.color;
 
-        // Mørkere skærm
+        // Skærmen bliver mørkere
         color.a = Mathf.Lerp(0f, maxDarkness, drunk);
 
-        // Farve bliver mere gul/orange
+        // Farven bliver mere gul/orange jo mere drunk
         color.r = 1f;
         color.g = Mathf.Lerp(1f, 0.65f, drunk);
         color.b = Mathf.Lerp(1f, 0.35f, drunk);
