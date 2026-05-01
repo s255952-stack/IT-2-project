@@ -1141,7 +1141,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717954561623084586}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 626a4d6723d6ad24b9aebb811ad5a3dd, type: 3}
   m_Name: 
@@ -1194,14 +1194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218a874e48c634586a72560264c2bb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GroundSnap
-  controller: {fileID: 6232745470232824989}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  rayStartHeight: 1
-  rayLength: 3
-  snapSpeed: 10
-  maxSnapDistance: 0.5
 --- !u!114 &935796772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,16 +1215,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717954561623084586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f36dd3a35a21405e892f0d2d80d9200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DelayedBeerLocomotion
-  head: {fileID: 1586632565}
-  motionInertia: {fileID: 935796772}
-  normalMoveSpeed: 5
-  minimumMoveSpeed: 0.2
-  gravity: -9.81
 --- !u!1 &1003026184
 GameObject:
   m_ObjectHideFlags: 0
@@ -4740,7 +4727,7 @@ MonoBehaviour:
   m_Camera: {fileID: 1586632560}
   m_OriginBaseGameObject: {fileID: 1717954561623084586}
   m_CameraFloorOffsetObject: {fileID: 1408060245}
-  m_RequestedTrackingOriginMode: 2
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.36144
 --- !u!1 &1246816219063062600
 GameObject:

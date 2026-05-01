@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Stores and provides intoxication data for other scripts
 public class MotionInertia : MonoBehaviour
 {
     [Header("Alcohol Level")]
@@ -8,6 +9,7 @@ public class MotionInertia : MonoBehaviour
 
     public void DrinkBeer()
     {
+        // Increase intoxication, but clamp to max value
         beersDrunk++;
         if (beersDrunk > maxBeers)
             beersDrunk = maxBeers;
@@ -27,6 +29,7 @@ public class MotionInertia : MonoBehaviour
 
     public float GetDrunkPercent()
     {
+        // Returns normalized value (0–1) used for effects
         return Mathf.Clamp01((float)beersDrunk / maxBeers);
     }
 }
