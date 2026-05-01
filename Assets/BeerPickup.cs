@@ -17,7 +17,7 @@ public class BeerPickup : MonoBehaviour
         // If player is close enough, trigger pickup
         if (distance < pickupDistance)
         {
-            // Find intoxication effect system (not optimal, but works for this prototype)
+            // Find intoxication effect system 
             MotionInertia drunk = FindObjectOfType<MotionInertia>();
 
             if (drunk != null)
