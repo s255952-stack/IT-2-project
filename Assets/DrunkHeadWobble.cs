@@ -28,9 +28,9 @@ public class DrunkHeadWobble : MonoBehaviour
     {
         if (motionInertia == null) return;
 
-        int beers = motionInertia.beersDrunk;
+        int beers = motionInertia.GetBeersDrunk();
+        int maxBeers = motionInertia.GetMaxBeers();
 
-        // Hvis ingen øl → gå tilbage til normal
         if (beers <= 0)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, startLocalPosition, 4f * Time.deltaTime);
@@ -38,8 +38,8 @@ public class DrunkHeadWobble : MonoBehaviour
             return;
         }
 
-        float t = Mathf.Clamp01((float)(beers - 1) / Mathf.Max(1, motionInertia.maxBeers - 1));
-        t = t * t; // blødere start
+        float t = Mathf.Clamp01((float)(beers - 1) / Mathf.Max(1, maxBeers - 1));
+        t = t * t;
 
         float currentPosX = Mathf.Lerp(firstBeerPositionX, maxPositionX, t);
         float currentRotZ = Mathf.Lerp(firstBeerRotationZ, maxRotationZ, t);
@@ -47,7 +47,6 @@ public class DrunkHeadWobble : MonoBehaviour
         float posX = Mathf.Sin(Time.time * wobbleSpeed) * currentPosX;
         float rotZ = Mathf.Sin(Time.time * wobbleSpeed * 1.3f) * currentRotZ;
 
-        // 🔥 VIGTIGT: bevæg parent (ikke kamera direkte)
         Vector3 targetPos = startLocalPosition + transform.right * posX;
         Quaternion targetRot = startLocalRotation * Quaternion.Euler(0f, 0f, rotZ);
 
@@ -55,5 +54,6 @@ public class DrunkHeadWobble : MonoBehaviour
         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRot, 2f * Time.deltaTime);
     }
 }
+
 
 

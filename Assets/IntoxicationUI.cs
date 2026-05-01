@@ -1,44 +1,23 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
-public class DrunkOverlayEffect : MonoBehaviour
+public class IntoxicationUI : MonoBehaviour
 {
-    public Image overlayImage;
     public MotionInertia motionInertia;
-
-    public float maxDarkness = 0.5f;
-
-    void Start()
-    {
-        if (overlayImage == null)
-            Debug.LogError("Overlay Image mangler!");
-
-        if (motionInertia == null)
-            Debug.LogError("Motion Inertia mangler!");
-    }
+    public TextMeshProUGUI intoxicationText;
 
     void Update()
     {
-        if (overlayImage == null || motionInertia == null)
-            return;
+        if (motionInertia == null || intoxicationText == null) return;
 
-        float drunk = motionInertia.GetDrunkPercent();
+        int level = motionInertia.GetBeersDrunk();
+        intoxicationText.text = "Intoxication: " + level;
 
-        // Gør effekten svag i starten og stærkere senere
-        drunk = Mathf.Pow(drunk, 2f);
-
-        Color color = overlayImage.color;
-
-        // Mørkere skærm
-        color.a = Mathf.Lerp(0f, maxDarkness, drunk);
-
-        // Farve bliver mere gul/orange
-        color.r = 1f;
-        color.g = Mathf.Lerp(1f, 0.65f, drunk);
-        color.b = Mathf.Lerp(1f, 0.35f, drunk);
-
-        overlayImage.color = color;
-
-        Debug.Log("Overlay drunk: " + drunk);
+        if (level < 3)
+            intoxicationText.color = Color.green;
+        else if (level < 6)
+            intoxicationText.color = Color.yellow;
+        else
+            intoxicationText.color = Color.red;
     }
 }
